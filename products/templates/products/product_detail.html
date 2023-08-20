@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    {% extends "base.html" %}
+
+    {% block content %}
+    <div class="container mt-5">
+        <img src="{{ product.image.url }}" alt="{{product.product}}"
+            style="width: 100%; max-width: 100%; height: 70vh;"> <br>
+        <h1>{{product.product}}</h1>
+        <h2>$ {{product.price}}</h2> <br> <br>
+        <p>{{product.description}}</p>
+    </div>
+    {% endblock %}
+
+</body>
+
+</html>

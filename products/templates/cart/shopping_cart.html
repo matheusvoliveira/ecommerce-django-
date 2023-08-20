@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping Cart</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    {% extends "base.html" %}
+
+    {% block content %}
+    <div class="container">
+        <h1 class="mt-4">Shopping Cart</h1>
+        <ul class="list-group mt-4">
+            {% for item in cart_items %}
+            <li class="list-group-item">
+                <div class="row align-items-center">
+                    <div class="col-md-2">
+                        <img src="{{ item.product.image.url }}" alt="{{ item.product.product }}" class="img-fluid">
+                    </div>
+                    <div class="col-md-6">
+                        <h5>{{ item.product.product }}</h5>
+                        <p class="mb-0">Price: ${{ item.product.price }}</p>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <a href="{% url 'remove_from_cart' item.id %}" class="btn btn-danger">Remove from cart</a>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% if cart_items %}
+        <div class="text-center mt-4">
+            <div class="mt-4 text-end">
+                <h3>Total: ${{ total_cost }}</h3>
+            </div>
+            <a href="{% url 'remove_all_from_cart' %}" class="btn btn-danger">Remove all from cart</a>
+            <a href="{% url 'credit_card' %}" class="btn btn-success">Buy Products</a>
+        </div>
+        {% endif %}
+    </div>
+    {% endblock %}
+    <!-- Include Bootstrap JS and Popper.js (required for some Bootstrap components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

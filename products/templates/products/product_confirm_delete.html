@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Confirm Delete</title>
+    <!-- Add the link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body class="container mt-5">
+    <div class="jumbotron">
+        <h1 class="display-4">Confirm Delete</h1>
+        <p class="lead">Are you sure you want to delete the product: {{ product.product }}?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Confirm</button>
+        </form>
+        <!-- Add a "Cancel" button to go back -->
+        <a href="/products/detail_product/{{ product.id }}" class="btn btn-secondary mt-2">Cancel</a>
+    </div>
+
+    <!-- Add the link to Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
